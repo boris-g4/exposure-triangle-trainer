@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Тренажер експозиції: діафрагма, ISO та витримка</title>
+    <meta
+      name="description"
+      content="Інтерактивний тренажер експозиції: доберіть рівноцінні поєднання діафрагми, ISO та витримки з однаковою яскравістю."
+    />
+    <meta name="robots" content="index,follow" />
+    <link rel="canonical" href="https://green4.photo/exposure-triangle-trainer/uk/" />
+    <link rel="alternate" hreflang="ru" href="https://green4.photo/exposure-triangle-trainer/" />
+    <link rel="alternate" hreflang="uk" href="https://green4.photo/exposure-triangle-trainer/uk/" />
+    <link rel="alternate" hreflang="x-default" href="https://green4.photo/exposure-triangle-trainer/" />
+    <link rel="icon" href="../assets/images/logo.png" type="image/png" />
+    <link rel="stylesheet" href="../assets/css/style.css" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Тренажер експозиції: діафрагма, ISO та витримка" />
+    <meta property="og:description" content="Доберіть рівноцінні поєднання діафрагми, ISO та витримки з однаковою яскравістю." />
+    <meta property="og:url" content="https://green4.photo/exposure-triangle-trainer/uk/" />
+    <meta property="og:image" content="https://green4.photo/exposure-triangle-trainer/assets/images/logo.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="279" />
+    <meta property="og:image:alt" content="Фотошкола «Зелений квадрат»" />
+    <meta property="og:locale" content="uk_UA" />
+    <meta property="og:locale:alternate" content="ru_UA" />
+    <meta property="og:site_name" content="Фотошкола «Зелений квадрат»" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Тренажер експозиції: діафрагма, ISO та витримка" />
+    <meta name="twitter:description" content="Доберіть рівноцінні поєднання діафрагми, ISO та витримки з однаковою яскравістю." />
+    <meta name="twitter:image" content="https://green4.photo/exposure-triangle-trainer/assets/images/logo.png" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Тренажер експозиції: діафрагма, ISO та витримка",
+        "description": "Інтерактивний тренажер експозиції: доберіть рівноцінні поєднання діафрагми, ISO та витримки з однаковою яскравістю.",
+        "url": "https://green4.photo/exposure-triangle-trainer/uk/",
+        "image": "https://green4.photo/exposure-triangle-trainer/assets/images/logo.png",
+        "applicationCategory": "EducationalApplication",
+        "browserRequirements": "Requires JavaScript",
+        "operatingSystem": "Any",
+        "inLanguage": "uk",
+        "isAccessibleForFree": true
+      }
+    </script>
+  </head>
+  <body>
+    <noscript>
+      <p class="noscript">Для роботи тренажера потрібен JavaScript. Увімкніть його в налаштуваннях браузера та перезавантажте сторінку.</p>
+    </noscript>
+    <main>
+      <header class="hero">
+        <div class="topbar">
+          <a class="brand" href="https://green4.photo/uk/" aria-label="Фотошкола «Зелений квадрат»">
+            <img
+              src="../assets/images/logo.png"
+              width="1200"
+              height="279"
+              alt="Фотошкола «Зелений квадрат»"
+            />
+          </a>
+          <nav class="languages" aria-label="Вибір мови">
+            <a class="active" href="./" hreflang="uk" lang="uk" aria-current="page">UA</a>
+            <a href="../" hreflang="ru" lang="ru">RU</a>
+          </nav>
+        </div>
+        <div class="eyebrow">Завдання 2.4 · Експозиція</div>
+        <h1>Одна яскравість.<br /><em>Різні параметри.</em></h1>
+        <p class="lead">
+          Подивіться, як ISO, витримка й діафрагма компенсують одне одного.
+          Змініть параметр — калькулятор підкаже рівноцінну заміну.
+        </p>
+      </header>
+
+      <section class="tool-panel" aria-label="Режим і дії">
+        <div class="mode-switch" role="group" aria-label="Режим роботи">
+          <button class="mode-button" id="mode-calculator" type="button" aria-pressed="true">Калькулятор</button>
+          <button class="mode-button" id="mode-training" type="button" aria-pressed="false">Тренування</button>
+        </div>
+        <div class="utility-actions">
+          <button class="utility-button" id="random" type="button">Випадковий приклад</button>
+          <div class="share-wrap">
+            <button class="utility-button" id="share" type="button">Поділитися</button>
+            <span class="share-status" id="share-status" role="status" hidden></span>
+          </div>
+        </div>
+      </section>
+
+      <section class="training-brief" id="training-brief" aria-labelledby="training-title" hidden>
+        <div>
+          <strong id="training-title">Завдання</strong>
+          <p id="training-instruction"></p>
+        </div>
+        <div class="score" aria-label="Результат тренування">
+          <span><strong id="score-total">0</strong><small>розв’язано</small></span>
+          <span><strong id="score-streak">0</strong><small>серія</small></span>
+        </div>
+      </section>
+
+      <section class="workspace" aria-label="Порівняння параметрів двох кадрів">
+        <article class="card ref" aria-labelledby="reference-title">
+          <div class="head">
+            <div><span class="num">01</span><h2 id="reference-title">Перший кадр</h2></div>
+            <span class="status refstatus">Еталон яскравості</span>
+          </div>
+          <p id="reference-description">Введіть параметри вдалого першого кадру.</p>
+          <div class="fields" id="ref"></div>
+        </article>
+        <div class="bridge" aria-hidden="true"></div>
+        <article class="card" aria-labelledby="next-title">
+          <div class="head">
+            <div><span class="num">02</span><h2 id="next-title">Наступний кадр</h2></div>
+            <span class="status" id="status" aria-live="polite"></span>
+          </div>
+          <p id="next-description">Доберіть параметри з такою самою яскравістю та перевірте результат нижче.</p>
+          <div class="fields" id="next"></div>
+        </article>
+      </section>
+
+      <section class="answer" aria-labelledby="title">
+        <div class="answer-top">
+          <div>
+            <span class="kicker" id="answer-kicker">Як повернути попередню яскравість</span>
+            <h2 id="title"></h2>
+          </div>
+          <div class="answer-actions">
+            <button class="primary-button" id="check" type="button" hidden>Перевірити</button>
+            <button class="reset" id="reset" type="button">Скинути</button>
+          </div>
+        </div>
+        <div id="result" aria-live="polite"></div>
+        <p class="note" id="answer-note">
+          Значення округлюються до найближчих стандартних налаштувань камери.
+          Невелике відхилення до 0,1 ступеня візуально майже непомітне.
+        </p>
+      </section>
+
+      <section class="lesson" aria-labelledby="lesson-title">
+        <span class="kicker green" id="lesson-title">Що важливо зрозуміти</span>
+        <div class="equation">
+          <strong>+1 ступінь</strong><span>світла в одному параметрі</span><b>=</b>
+          <strong>−1 ступінь</strong><span>в іншому параметрі</span>
+        </div>
+        <p>Один ступінь — це зміна кількості світла вдвічі. Зазвичай це три клацання колеса камери.</p>
+      </section>
+
+      <footer>
+        <span>Навчальний тренажер · курс фотографії</span>
+        <a class="courses" href="https://green4.photo/uk/online/">КУРСИ ФОТОШКОЛИ</a>
+      </footer>
+    </main>
+    <script src="../assets/js/trainer.js" defer></script>
+  </body>
+</html>
