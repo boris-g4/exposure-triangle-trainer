@@ -29,6 +29,7 @@
     ["20″", 20], ["25″", 25], ["30″", 30],
   ];
   const SHUTTER_VALUES = SHUTTERS.map((item) => item[0]);
+  const STEPS_PER_STOP = 3;
   const EMPTY_SETTINGS = () => ({ a: "", i: "", s: "" });
 
   const COPY = {
@@ -194,7 +195,20 @@
   const isComplete = (settings) => Boolean(settings.a && settings.i && settings.s);
   const exposure = (settings) =>
     (settings.i * shutterSeconds(settings.s)) / (settings.a * settings.a);
-  const stopsDifference = (first, second) => Math.log2(exposure(second) / exposure(first));
+  const stopsDifference = (first, second) => {
+    const apertureSteps = APERTURES.indexOf(second.a) - APERTURES.indexOf(first.a);
+    const isoSteps = ISO_VALUES.indexOf(second.i) - ISO_VALUES.indexOf(first.i);
+    const shutterSteps = SHUTTER_VALUES.indexOf(second.s) - SHUTTER_VALUES.indexOf(first.s);
+    const usesStandardValues = [first.a, second.a, first.i, second.i, first.s, second.s]
+      .every((value) => value !== undefined) &&
+      APERTURES.includes(first.a) && APERTURES.includes(second.a) &&
+      ISO_VALUES.includes(first.i) && ISO_VALUES.includes(second.i) &&
+      SHUTTER_VALUES.includes(first.s) && SHUTTER_VALUES.includes(second.s);
+
+    return usesStandardValues
+      ? (isoSteps + shutterSteps - apertureSteps) / STEPS_PER_STOP
+      : Math.log2(exposure(second) / exposure(first));
+  };
   const nearest = (values, target, getValue = (value) => value) =>
     values.reduce((current, candidate) =>
       Math.abs(Math.log2(getValue(candidate) / target)) < Math.abs(Math.log2(getValue(current) / target))

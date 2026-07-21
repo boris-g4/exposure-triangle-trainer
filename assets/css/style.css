@@ -420,6 +420,11 @@ h1 em {
   margin-top: 16px;
 }
 
+.training-feedback .hint-button {
+  margin-left: 8px;
+  color: #dbe3dd;
+}
+
 .training-feedback {
   margin-top: 22px;
   padding: 17px;
