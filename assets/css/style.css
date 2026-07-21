@@ -542,6 +542,39 @@ h1 em {
   line-height: 1.5;
 }
 
+.postscript {
+  max-width: 760px;
+  padding: 0 4px 32px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.postscript h2 {
+  margin: 0 0 8px;
+  color: var(--ink);
+  font-size: 16px;
+}
+
+.postscript p {
+  margin: 0 0 8px;
+}
+
+.postscript a {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-position: left bottom;
+  background-repeat: no-repeat;
+  background-size: 0 1px;
+  color: var(--green);
+  font-weight: 700;
+  text-decoration: none;
+  transition: background-size 200ms ease;
+}
+
+.postscript a:hover,
+.postscript a:focus-visible {
+  background-size: 100% 1px;
+}
+
 footer {
   display: flex;
   align-items: center;
@@ -715,5 +748,9 @@ footer {
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+
+  .postscript a {
+    transition: none;
   }
 }
