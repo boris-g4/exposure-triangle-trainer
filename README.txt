@@ -20,7 +20,9 @@
 Основные файлы:
 - assets/css/style.css — общие стили RU и UA;
 - assets/js/trainer.js — общая логика и локализованные тексты;
-- assets/images/logo.png — логотип, favicon и изображение для соцсетей.
+- assets/images/logo.png — логотип и изображение для соцсетей;
+- assets/images/favicon-32.jpg и favicon-192.jpg — иконки вкладки браузера;
+- assets/images/apple-touch-icon.jpg — иконка для устройств Apple.
 
 Возможности:
 - свободный калькулятор экспозиции;
